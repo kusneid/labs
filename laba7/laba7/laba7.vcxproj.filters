@@ -18,9 +18,6 @@
     <ClCompile Include="main.cpp">
       <Filter>Файлы исходного кода</Filter>
     </ClCompile>
-    <ClCompile Include="funcs.cpp">
-      <Filter>Файлы исходного кода</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="source.txt">
@@ -36,6 +33,9 @@
       <Filter>Файлы ресурсов</Filter>
     </Text>
     <Text Include="stat.txt">
+      <Filter>Файлы ресурсов</Filter>
+    </Text>
+    <Text Include="temp.txt">
       <Filter>Файлы ресурсов</Filter>
     </Text>
   </ItemGroup>
