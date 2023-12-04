@@ -70,7 +70,7 @@ double conc(double a, double b, char u[]) {
 
 
 
-double IntRect(double a, double b, double eps, double (*f)(double), int& n) {
+double IntRect(double a, double b, double eps, PF f, int& n) {
 	double s1=1, s2=0, dx, f1, f2;
 	n = 1;
 	while (abs(s2 - s1) >= eps) {
