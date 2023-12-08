@@ -1,0 +1,8 @@
+bool Check(char eng[]) {
+	int i = 0;
+	while (eng[i]!='\0')
+	{
+		if ((int)eng[i]
+	}
+
+}
