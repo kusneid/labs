@@ -2,7 +2,6 @@
 
 using namespace std;
 int main(){
-	//system("chcp 1251");
 	double eps,a=1,b=3;
 	int n=1;
 	double (*F[4])(double)={f1,f2,f3,f4};

@@ -39,9 +39,4 @@
       <Filter>Файлы ресурсов</Filter>
     </Text>
   </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="h.h">
-      <Filter>Заголовочные файлы</Filter>
-    </ClInclude>
-  </ItemGroup>
 </Project>

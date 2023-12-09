@@ -1,19 +1,17 @@
-#pragma once
 #include <iostream>
 #include <iomanip>
 using namespace std;
+
 int fa(int a) {
 	if (a == 1) { return 1; }
 	if (a == 0) return 1;
 	return a * fa(a - 1);
 }
-void fill(double** a, int n, double x) {
 
+void fill(double** a, int n, double x) {
 	for (int t = 0; t < n; ++t) {
 		a[t] = new double[n];
 	}
-
-
 	for (int i = 0; i < n; ++i) {
 		for (int j = 0; j < n; ++j) {
 			if (i == j) {
@@ -33,12 +31,11 @@ void fill(double** a, int n, double x) {
 				return;
 			}
 		}
-
 	}
-
-
 }
+
 template <typename T>
+
 void print(T a, int n, int m, char ch, int r) {
 	int lim = min(79 / (r + 10), m);
 	int c = 0;
@@ -74,6 +71,7 @@ void print(T a, int n, int m, char ch, int r) {
 
 
 }
+
 double summ(double* a, int m) {
 	double s = 0;
 	for (int i = 0; i < m; i++) {
@@ -81,39 +79,29 @@ double summ(double* a, int m) {
 	}
 	return s;
 }
+
 void clear(double** a, int n) {
 	for (int i = 0; i < n; ++i) {
 		delete[] a[i];
 	}
 	delete[] a;
 }
+
 void sorti(double** a, int n, int m) {
 	int minm;
 	for (int i = 0; i < n - 1; i++) {
 		minm = i;
 		for (int j = i + 1; j < n; j++) {
-
 			if (summ(a[j], m) < summ(a[minm], m)) {
 				minm = j;
 			}
 		}
 		if (minm != i) {
 			swap(a[i], a[minm]);
-
 		}
-
 	}
-
-
-
 }
 
-
-
-
-
-
-using namespace std;
 int main() {
 	system("chcp 1251");
 	setlocale(LC_ALL, "Russian");
@@ -126,7 +114,7 @@ int main() {
 	double x = 2;
 	double** a = new double* [n];
 	fill(a, n, x);
-	cout << "\n       :\n";
+	cout << "\nmassiv main:\n";
 	print(a, n, n, ch, r);
 	cout << "\n\n\n";
 	cout << "\nstatic 10x10:\n";
@@ -144,6 +132,4 @@ int main() {
 	print(a, n, n, ch, r);
 	clear(a, n);
 	return 0;
-
-
 }

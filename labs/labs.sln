@@ -23,7 +23,17 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "laba10", "laba10\laba10.vcx
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Элементы решения", "Элементы решения", "{472E4738-E02E-419B-9327-FA5A84F9F824}"
 	ProjectSection(SolutionItems) = preProject
+		doclab\lab01.doc = doclab\lab01.doc
+		doclab\lab02.doc = doclab\lab02.doc
+		doclab\lab03.doc = doclab\lab03.doc
+		doclab\lab04.doc = doclab\lab04.doc
+		doclab\lab05.doc = doclab\lab05.doc
+		doclab\lab06.doc = doclab\lab06.doc
+		doclab\lab07.doc = doclab\lab07.doc
+		doclab\lab08.doc = doclab\lab08.doc
+		doclab\lab09.doc = doclab\lab09.doc
 		temp.txt = temp.txt
+		doclab\lab10.doc = doclab\lab10.doc
 	EndProjectSection
 EndProject
 Global

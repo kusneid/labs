@@ -1,18 +1,23 @@
 ﻿
 #include "header.h"
 using namespace std;
+
 double f1(double x) {
 	return x;
 }
+
 double f2(double x) {
 	return sin(22 * x);
 }
+
 double f3(double x) {
 	return pow(x, 4);
 }
+
 double f4(double x) {
 	return atan(x);
 }
+
 void PrintTabl(I_print i_prn[], int k)
 {
 	const int m = 4;//число столбцов таблицы
@@ -52,24 +57,6 @@ void PrintTabl(I_print i_prn[], int k)
 	cout << setw(wn[m - 1]) << char(217) << setfill(' ') << endl;
 }
 
-//double conc(double a, double b, char u[]) {
-//	if (u == "y=x") {
-//		return (b * b - a * a) / 2.0;
-//	}
-//	if (u == "y=sin(22x)") {
-//		return (cos(a * 22.0) - cos(b * 22.0)) / 22.0;
-//	}
-//	if (u == "y=x^4") {
-//		return (b * b * b * b * b - a * a * a * a * a) / 5.0;
-//	}
-//	if (u == "y=arctg(x)") {
-//		return b * atan(b) - a * atan(a) - (log(b * b + 1) - log(a * a + 1)) / 2.0;
-//	}
-//	return 10e10;
-//}
-
-
-
 double IntRect(double a, double b, double eps, PF f, int& n) {
 	double s1=1, s2=0, dx, f1, f2;
 	n = 1;
@@ -94,6 +81,7 @@ double IntRect(double a, double b, double eps, PF f, int& n) {
 	} 	
 	return s1;
 }
+
 double IntTrap(double a, double b, double eps, TPF f, int& n) {
 	double s1 = 0, s2 = 0, dx, f1, f2,i;
 	n = 1;

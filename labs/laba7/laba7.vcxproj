@@ -87,9 +87,6 @@
     <Text Include="stat.txt" />
     <Text Include="temp.txt" />
   </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="h.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

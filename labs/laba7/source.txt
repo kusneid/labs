@@ -40,4 +40,4 @@ int main() {
 
 	//bool newl = true;
 	while (key.get(ch)){
-		ы
+		ыааааагыг
