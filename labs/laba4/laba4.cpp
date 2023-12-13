@@ -1,6 +1,8 @@
 #include "fx.h"
 int main(){
+	
 	system("chcp 1251");
+
 	cout << "x-cos(x), eps: 0.000001\n";
 	iter(1,0.000001,1);
 	newt(1,0.000001,1);

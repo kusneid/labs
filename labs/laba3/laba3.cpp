@@ -2,6 +2,7 @@
 #include <iomanip>
 using namespace std;
 int main() {
+    system("chcp 1251>nul");
     //раскомментировать нужное,2 вариант
     cout << "1:\n";
     int n, m;

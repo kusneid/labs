@@ -95,6 +95,7 @@ double IntTrap(double a, double b, double eps, TPF f, int& n) {
 		}
 		n *= 2;
 	} while (abs(f(i) - f(i + dx)) >= eps);
+
 	n /= 2;
 	return s1;
 }

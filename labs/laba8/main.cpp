@@ -108,16 +108,16 @@ int main() {
 	int n;
 	char ch;
 	int r = 8;
-	cout << "razmer setpr i type\n";
+	cout << "Введите размер, погрешность и тип вывода:\n";
 	cin >> n >> r>>ch;
 	cout << "\n";
-	double x = 2;
+	double x = 1;
 	double** a = new double* [n];
 	fill(a, n, x);
-	cout << "\nmassiv main:\n";
+	cout << "\nГлавный массив:\n";
 	print(a, n, n, ch, r);
 	cout << "\n\n\n";
-	cout << "\nstatic 10x10:\n";
+	cout << "\nСтатический массив 10x10:\n";
 	double B[10][10];
 	for (int i = 0; i < 10; ++i) {
 		for (int j = 0; j < 10; ++j) {
@@ -126,10 +126,18 @@ int main() {
 		}
 
 	}
-	print(B, 10, 10, ch, r);
-	cout << "\n sortik:\n";
+	print(B, 10, 10, 't', 0);
+	cout<<"\n\n"<<B<<endl;
+	system ("pause");
+	cout<<B[8]<<"  "<<B+10<<"  "<<B[2]+8<<endl;
+	cout<<*B+8<<"  "<<*(*B+8) <<"  "<<*B[9]<<endl;
+	cout<<*(B+7)<<"  "<<*(B[1])+8<<endl;
+	cout<<*(B[9]+2)<<"  " <<*(B[2])+1<<endl;
+	cout<<B[0][30]<<"  "<<*(B+50)<<"  "<<endl;
+	cout << "\n Отсортированный:\n";
 	sorti(a, n, n);
 	print(a, n, n, ch, r);
 	clear(a, n);
+	system ("pause");
 	return 0;
 }

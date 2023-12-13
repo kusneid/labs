@@ -3,6 +3,7 @@
 #include <iostream>
 #include <cmath>
 #include <iomanip>
+#include <cstring>
 
 typedef double (*PF)(double);
 typedef double (*TPF)(double);
@@ -22,5 +23,4 @@ double f4(double x);
 
 
 double IntRect(double a, double b, double eps, PF f, int& n);
-double IntTrap(double a, double b, double eps, double (*f)(double), int& n);
-double conc(double a, double b, char u[]);
+double IntTrap(double a, double b, double eps, TPF f, int& n);
