@@ -149,6 +149,7 @@ void DictionaryToFile(const char* a, Dictionary mas[], int cur_len) {
 void Fill(const char* a, Dictionary mas[], int& cur_len) {
 	char b;
 	char word1[31];
+//char* word = new char[31];
 	//char word2[31];
 	int y = 0;
 	std::ifstream file(a);
@@ -158,6 +159,7 @@ void Fill(const char* a, Dictionary mas[], int& cur_len) {
 	{
 		if ((b != '-') && (b != '\n')) {
 			word1[i] = b;
+   //word[i]= b;
 			i++;
 		}
 		if (b == '-') {
@@ -167,6 +169,8 @@ void Fill(const char* a, Dictionary mas[], int& cur_len) {
 			{
 				word1[i] = 0;
 			}
+   //delete [] word;
+//char* word = new char[31];
 		}
 		if (b == '\n') {
 			word1[i + 1] = '\0';
