@@ -16,7 +16,7 @@ int main(){
 	ans[3].name="y=arctg(x)";
 	ans[3].i_toch=b * atan(b) - a * atan(a) - (log(b * b + 1) - log(a * a + 1)) / 2.0;
 	//заполнение изменяемых элементов таблицы
-	for (int h=1;h<3;++h){
+	/*for (int h=1;h<3;++h){
 		if (h == 1) {
 			cout << "IntTrap:\n";
 		}
@@ -36,5 +36,8 @@ int main(){
 		}
 		PrintTabl(ans, 4);
 	}
-	}
+	}*/
+
+	cout << "\n\n\n\n\n\n";
+	cout << IntRect(0, 1, 0.0001, F[0], n);
 }

@@ -7,7 +7,7 @@
 	const int max_len = 200;
 	Dictionary mas[max_len] /*={ {"dog","sobaka"},{"cat","koshka"},{"ball","shar"} }*/;
 	int cur_len = 0;
-	Fill("output.txt", mas, cur_len);
+	//Fill("output.txt", mas, cur_len);
 	while (true)
 	{
 		switch (Menu())

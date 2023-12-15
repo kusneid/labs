@@ -3,7 +3,7 @@
 using namespace std;
 
 double f1(double x) {
-	return x;
+	return pow(2 * x - 1, 8);
 }
 
 double f2(double x) {

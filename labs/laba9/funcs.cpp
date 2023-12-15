@@ -146,64 +146,109 @@ void DictionaryToFile(const char* a, Dictionary mas[], int cur_len) {
 
 	return;
 }
-void Fill(const char* a, Dictionary mas[], int& cur_len) {
-	char b;
-	char word1[31];
-//char* word = new char[31];
-	//char word2[31];
-	int y = 0;
-	std::ifstream file(a);
-	int i = 0;
-	cur_len = 0;
-	for (file.get(b);!file.eof();file.get(b))
-	{
-		if ((b != '-') && (b != '\n')) {
-			word1[i] = b;
-   //word[i]= b;
-			i++;
-		}
-		if (b == '-') {
-			word1[i + 1] = '\0';
-			strcpy_s(mas[i].eng, word1);
-			for (size_t i = 0; i < 31; i++)
-			{
-				word1[i] = 0;
-			}
-   //delete [] word;
-//char* word = new char[31];
-		}
-		if (b == '\n') {
-			word1[i + 1] = '\0';
-			strcpy_s(mas[i].rus, word1);
-			cur_len++;
-			for (size_t i = 0; i < 31; i++)
-			{
-				word1[i] = 0;
-			}
-		}
-		//if ((b != ' ') && (b != '-')) {
-		//	word[i] = b;
-		//	i++;
-		//}
-		//else
-		//{
-		//	word[i + 1] = '\0';
-		//	if (i % 2 == 0)
-		//	{
-		//		strcpy_s(mas[i].eng, word);
-		//	}
-		//	else
-		//	{
-		//		strcpy_s(mas[i].rus, word);
-		//	}
-		//	cur_len += 1;
-		//	i = 0;
-		//	//memset(word, 0, 31);
-		//	strcpy(word, "");
-		//	for (int i = 0; i < 31; i++) { word[i] = ' '; }
-		//}
+//void Fill(const char* a, Dictionary mas[], int& cur_len) {
+//	char b;
+//	//char word1[31];
+//	char* word = new char[31];
+//	//char word2[31];
+//	int y = 0;
+//	std::ifstream file(a);
+//	int i = 0;
+//	cur_len = 0;
+//	for (file.get(b);!file.eof();file.get(b))
+//	{
+//		if ((b != '-') && (b != '\n')) {
+//			//word1[i] = b;
+//			word[i]= b;
+//			i++;
+//		}
+//		if (b == '-') {
+//			word[i + 1] = '\0';
+//			strcpy_s(mas[i].eng, word);
+//			/*for (size_t i = 0; i < 31; i++)
+//			{
+//				word1[i] = 0;
+//			}*/
+//			i = 0;
+//			delete [] word;
+//			char* word = new char[31];
+//		}
+//		if (b == '\n') {
+//			word[i + 1] = '\0';
+//			strcpy_s(mas[i].rus, word);
+//			i = 0;
+//			delete[] word;
+//			char* word = new char[31];
+//			cur_len++;
+//			/*for (size_t i = 0; i < 31; i++)
+//			{
+//				word[i] = 0;
+//			}*/
+//		}
+//		//if ((b != ' ') && (b != '-')) {
+//		//	word[i] = b;
+//		//	i++;
+//		//}
+//		//else
+//		//{
+//		//	word[i + 1] = '\0';
+//		//	if (i % 2 == 0)
+//		//	{
+//		//		strcpy_s(mas[i].eng, word);
+//		//	}
+//		//	else
+//		//	{
+//		//		strcpy_s(mas[i].rus, word);
+//		//	}
+//		//	cur_len += 1;
+//		//	i = 0;
+//		//	//memset(word, 0, 31);
+//		//	strcpy(word, "");
+//		//	for (int i = 0; i < 31; i++) { word[i] = ' '; }
+//		//}
+//	}
+//	cur_len /= 2;
+//
+//}
+
+Dictionary* Fill(const char* a,int ma, int& cur_len) {
+	std::fstream file(a);
+	const int max_len = 200;
+	Dictionary mas[max_len];
+	if (!file.is_open()) {
+		std::cout << "File error!!\n";
+		return mas;
 	}
-	cur_len /= 2;
+	bool en = true;
+	char t;
+	char word[31];
+	char word1[31];
+	int i = 0;
+	//mas[i] = { "place","mesto" };
+	for (file.get(t);!file.eof();file.get(t))
+	{
+		if (t != '-') {
+			if (en)
+			{
+				word[i] = t;
+			}
+			else
+			{
+				word1[i] = t;
+			}
+		}
+		else
+		{
+			i = 0;
+			en = false;
+		}
+		i++;
+		if (t == '\n') {
+			//mas[cur_len] = { word,word1 };
+			i = 0;
+			en = true;
+		}
+	}
 
 }
 

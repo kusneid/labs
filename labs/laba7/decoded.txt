@@ -4,40 +4,25 @@ Keep walking the line between the light
 Led astray
 Through vacant halls, I won't surrender
 The truth revealed in eyes of ember
-We fight through fire and �ce forever
+We fight through fire and ice forever
 Two souls once lost, and now they remember
 I am the storm that is approaching
 Provoking black clouds and isolation
 I am reclaimer of my name
-Born in flames, I have been bless�d
+Born in flames, I have been blessed
 My family crest is a demon of death
 Forsakened, I am awakened
 A phoenix's ash in dark divine
 Descending misery
 Destiny chasing time
-тут ��усские символы ура ура!@#$%^&*()/';]<>\\|
+@#$%^&*()/';]<>\\|
 #include "h.h"
 
 int main() {
 	system("chcp 1251 > nul");
-	setlocale(LC_ALL, "Russian");
+0etlocale(LC_ALL, "Russian");
 
 	//cout<<static_cast<int>('\n');
-	ifstream ke�("key.txt");
-	if (!key){return 0;}
-	char ch;
-	int stat[256][256]= {0};
-
-	//keylen
-	char s[300];
-	int l = 1,i = 0,temp_key=0;
-	for (key >> s; !key.eof(); key >> s) { l++; }
-	//keymas
-	//cout <<l<< endl;
-	int* ke = new int[l];
-	key.clear();
-	key.seekg(0);
-
-	//bool newl = true;
-	while (key.get(ch)){
-		ыаааааг��г
+	ifstream key("key.txt");
+тест русского языка он работает крч61.
+ксампритольдбжюорые

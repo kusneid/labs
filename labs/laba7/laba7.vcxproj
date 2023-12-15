@@ -77,6 +77,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="funcs.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -86,6 +87,9 @@
     <Text Include="source.txt" />
     <Text Include="stat.txt" />
     <Text Include="temp.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="h.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -15,29 +15,14 @@ Forsakened, I am awakened
 A phoenix's ash in dark divine
 Descending misery
 Destiny chasing time
-тут русские символы ура ура!@#$%^&*()/';]<>\\|
+@#$%^&*()/';]<>\\|
 #include "h.h"
 
 int main() {
 	system("chcp 1251 > nul");
-	setlocale(LC_ALL, "Russian");
+0etlocale(LC_ALL, "Russian");
 
 	//cout<<static_cast<int>('\n');
 	ifstream key("key.txt");
-	if (!key){return 0;}
-	char ch;
-	int stat[256][256]= {0};
-
-	//keylen
-	char s[300];
-	int l = 1,i = 0,temp_key=0;
-	for (key >> s; !key.eof(); key >> s) { l++; }
-	//keymas
-	//cout <<l<< endl;
-	int* ke = new int[l];
-	key.clear();
-	key.seekg(0);
-
-	//bool newl = true;
-	while (key.get(ch)){
-		ыааааагыг
+тест русского языка он работает крч61.
+ксампритольдбжюорые
