@@ -59,7 +59,7 @@ void Print(char* word, int word_len, char* mas,int mas_len) {
 	/*int a = ;*/
 	for (int i = 0; i < mas_len; i++)
 	{
-		if (mas[i]!=' ')
+		if ((mas[i]!=' ')||(mas[i]!=','))
 		{
 			//std::cout <<y;
 			word_temp[y] = mas[i];
