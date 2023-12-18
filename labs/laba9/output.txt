@@ -1,1 +1,2 @@
-dog-sobaka
+dog - sobaka
+cat - koshka

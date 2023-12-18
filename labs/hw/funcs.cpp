@@ -54,31 +54,32 @@ bool Compare(char* word, char* word_temp, int len) {
 
 void Print(char* word, int word_len, char* mas,int mas_len) {
 	//char temp;
-	char* word_temp=new char[1000];
-	int y = 0;
+	char* wordCurrent=new char[1000];
+	int wordCurrentLen = 0;
 	/*int a = ;*/
 	for (int i = 0; i < mas_len; i++)
 	{
 		if ((mas[i]!=' ')||(mas[i]!=','))
 		{
-			//std::cout <<y;
-			word_temp[y] = mas[i];
-			y++;
+			//std::cout <<wordCurrentLen;
+			wordCurrent[wordCurrentLen] = mas[i];
+			wordCurrentLen++;
 		}
 		else
 		{
-			if (Compare(word,word_temp, std::max(word_len, y)) == false)
+			//Compare(word, wordCurrent, std::max(word_len, wordCurrentLen)
+			if (strcmp(word,wordCurrent) == false)
 			{
-				PrintWord(word_temp, y-1);
+				PrintWord(wordCurrent, wordCurrentLen-1);
 				putch(' ');
 				
 			}
 			else {
 				
 			}
-			y = 0;
-			delete[] word_temp;
-			char* word_temp = new char[1000];
+			wordCurrentLen = 0;
+			delete[] wordCurrent;
+			char* wordCurrent = new char[1000];
 		}
 
 	}

@@ -3,9 +3,9 @@
 int main() {
 	system("chcp 1251");
 	int matrixValue;
-	std::cout << "введите размерность матрицы:";
+	std::cout << "enter matrix size:";
 	std::cin >> matrixValue;
-	double** matrix = new double* [matrixValue+1];
+	double** matrix = new double* [matrixValue];
 
 	FillMatrix(matrix, matrixValue);
 	InputMatrix(matrix, matrixValue);

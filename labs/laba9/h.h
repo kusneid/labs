@@ -4,8 +4,8 @@
 
 
 struct Dictionary {
-	char eng[31];
-	char rus[31];
+	char* eng= new char[31];
+	char* rus= new char[31];
 };
 
 int Menu();
@@ -15,3 +15,4 @@ void DeleteWord(Dictionary mas[], int& cur_len);
 void PrintDictionary(Dictionary mas[], int cur_len);
 void DictionaryToFile(const char* a,Dictionary mas[], int cur_len);
 //void Fill(const char* a, Dictionary mas[], int& cur_len);
+void Fill(Dictionary* mas, int& cur_len);

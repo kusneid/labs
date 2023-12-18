@@ -20,7 +20,8 @@ int main() {
 
 	int len;
 	char* word = LastWord(i, mas,len);
-	//PrintWord(word, len);
+	std::cout << "\nlast word:";
+	PrintWord(word, len);
 	std::cout << "\nproga:\n";
 	Print(word, len, mas, i);
 

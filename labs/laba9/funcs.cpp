@@ -58,8 +58,8 @@ void AddWords(Dictionary mas[],int& cur_len,const int max_len) {
 		std::cin >> eng1;
 		std::cout << "\nEnter russian word:";
 		std::cin >> rus1;
-		strcpy_s(mas[cur_len].eng, eng1);
-		strcpy_s(mas[cur_len].rus, rus1);
+		strcpy(mas[cur_len].eng, eng1);
+		strcpy(mas[cur_len].rus, rus1);
 		cur_len++;
 		std::cout << "\nDo you want to continue? (y/n)";
 		std::cin >> state;
@@ -80,8 +80,8 @@ void DeleteWord(Dictionary mas[], int& cur_len) {
 		if (i == -1) { 
 			std::cout << "cant find";
 			return; }
-		strcpy_s(mas[i].eng, mas[i + 1].eng);
-		strcpy_s(mas[i].rus, mas[i + 1].rus);
+		strcpy(mas[i].eng, mas[i + 1].eng);
+		strcpy(mas[i].rus, mas[i + 1].rus);
 	}
 
 	cur_len--;
@@ -141,7 +141,7 @@ void DictionaryToFile(const char* a, Dictionary mas[], int cur_len) {
 	}
 
 	for (int i = 0; i < cur_len; i++) {
-		file << mas[i].eng << "-" << mas[i].rus << "\n";
+		file << mas[i].eng << " - " << mas[i].rus << "\n";
 	}
 
 	return;
@@ -210,47 +210,64 @@ void DictionaryToFile(const char* a, Dictionary mas[], int cur_len) {
 //	cur_len /= 2;
 //
 //}
+//bool en = true;
+	//char t;
+	//char word[31];
+	//char word1[31];
+	////char* word = new char[31];
+	////char* word1 = new char[31];
+	//int i = 0;
+	////mas[i] = { "place","mesto" };
+	//for (file.get(t); !file.eof(); file.get(t))
+	//{
+	//	if (t != '-') {
+	//		if (en)
+	//		{
+	//			word[i] = t;
+	//		}
+	//		else
+	//		{
+	//			word1[i] = t;
+	//		}
+	//	}
+	//	else
+	//	{
+	//		i = 0;
+	//		en = false;
+	//	}
+	//	i++;
+	//	if (t == '\n') {
+	//		mas[cur_len] = { *word,*word1 };
+	//		i = 0;
+	//		en = true;
+	//	}
+	//}
 
-Dictionary* Fill(const char* a,int ma, int& cur_len) {
-	std::fstream file(a);
-	const int max_len = 200;
-	Dictionary mas[max_len];
-	if (!file.is_open()) {
-		std::cout << "File error!!\n";
-		return mas;
-	}
-	bool en = true;
-	char t;
-	char word[31];
-	char word1[31];
-	int i = 0;
-	//mas[i] = { "place","mesto" };
-	for (file.get(t);!file.eof();file.get(t))
+	//file.close();
+	//const int max_len = 200;
+	//Dictionary mas[max_len] /*={ {"dog","sobaka"},{"cat","koshka"},{"ball","shar"} }*/;
+
+	//Fill("output.txt", mas, cur_len);
+void Fill(Dictionary* mas,int& cur_len) {
+	std::ifstream file("output.txt");
+	while (!file.eof())
 	{
-		if (t != '-') {
-			if (en)
-			{
-				word[i] = t;
-			}
-			else
-			{
-				word1[i] = t;
-			}
-		}
-		else
-		{
-			i = 0;
-			en = false;
-		}
-		i++;
-		if (t == '\n') {
-			//mas[cur_len] = { word,word1 };
-			i = 0;
-			en = true;
-		}
+		char* word = new char[100];
+		file >> word;
+
+		mas[cur_len].eng = new char[strlen(word) + 1];
+		std::copy(word, word + strlen(word) + 1, mas[cur_len].eng);
+
+		file >> word;
+		file >> word;
+
+		mas[cur_len].rus = new char[strlen(word) + 1];
+		std::copy(word, word + strlen(word) + 1, mas[cur_len].rus);
+		++cur_len;
 	}
 
 }
+
 
 
 

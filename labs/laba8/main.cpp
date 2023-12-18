@@ -5,8 +5,7 @@ using namespace std;
 template <typename T>
 
 void print(T a, int n, int m, char ch, int r) {
-	int lim = min(79 / (r + 10), m);
-	int c = 0;
+	int lim = min(80 / (r + 10), m);
 	int h = 0;
 	int j = 0;
 	while (h < m) {
@@ -21,7 +20,7 @@ void print(T a, int n, int m, char ch, int r) {
 			else if (ch == 's') {
 
 				for (j = h; j < lim + h; ++j) {
-					cout /*<< "|"*/ << setw(r + 6) << scientific << setprecision(r) << a[i][j] << " ";
+					cout << setw(r + 6) << scientific << setprecision(r) << a[i][j] << " ";
 
 				}
 			}
@@ -43,14 +42,11 @@ void print(T a, int n, int m, char ch, int r) {
 
 
 int main() {
-	
-
 	system("chcp 1251");
-	setlocale(LC_ALL, "Russian");
 	int n;
 	char ch;
-	int r = 8;
-	cout << "¬ведите размер, погрешность и тип вывода:\n";
+	int r;
+	cout << "¬ведите размер, погрешность и тип вывода(s/t):\n";
 	cin >> n >> r>>ch;
 	cout << "\n";
 	double x = 1;
@@ -69,17 +65,7 @@ int main() {
 
 	}
 	print(B, 10, 10, 't', 0);
-	//cout<<"\n\n"<<B<<endl;
-	////system ("pause");
-	//cout<<B[8]<<"  "<<B+10<<"  "<<B[2]+8<<endl;
-	//cout<<*B+8<<"  "<<*(*B+8) <<"  "<<*B[9]<<endl;
-	//cout<<*(B+7)<<"  "<<*(B[1])+8<<endl;
-	//cout<<*(B[9]+2)<<"  " <<*(B[2])+1<<endl;
-	//cout<<B[0][30]<<"  "<<*(B+50)<<"  "<<endl;
-	//cout << "\n ќтсортированный:\n";
-	sorti(a, n, n);
-	print(a, n, n, ch, r);
 	clear(a, n);
-	system ("pause");
+	
 	return 0;
 }

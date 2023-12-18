@@ -23,41 +23,62 @@ void rever(int a[], int n) {
 	}
 
 }
-//???????? ? ?? ??? ????
+
 void bub(int a[], int n, char t) {
 	cout << "bubble method: ";
 	int count = 0, sr = 0;
-	bool sorted;
+	
 	for (int i = 0; i < n - 1; i++) {
-		sorted = true;
+		
 		for (int j = 0; j < n - i - 1; j++) {
 			sr++;
 			if (a[j] > a[j + 1]) {
 				swap(a[j], a[j + 1]);
-				sorted = false;
+				
 				count++;
 			}
 		}
-		if (sorted)
-		{
-			cout << "\nСравнений: " << sr << "\nПерестановок: " << count << "\n";
-			break;
-		}
 
 	}
+	
 	if (t == 'y') {
 		for (int t = 0; t < n; t++) {
 			cout << a[t] << " ";
 		}
 	}
+	cout << "\nСравнений: " << sr << "\nПерестановок: " << count << "\n";
 	
+}
+void bubreversed(int a[], int n, char t) {
+	cout << "\nbubble method: ";
+	int count = 0, sr = 0;
+
+	for (int i = 0; i < n - 1; i++) {
+		
+		for (int j = 0; j < n - i - 1; j++) {
+			sr++;
+			if (a[j] < a[j + 1]) {
+				swap(a[j], a[j + 1]);
+				count++;
+			}
+		}
+
+	}
+
+	if (t == 'y') {
+		for (int t = 0; t < n; t++) {
+			cout << a[t] << " ";
+		}
+	}
+	cout << "\nСравнений: " << sr << "\nПерестановок: " << count << "\n";
+
 }
 
 
 void sel(int a[], int n, char t) {
 
 	int sr = 0, count = 0;
-	cout << "selection method: ";
+	cout << "\nselection method: ";
 	int minm;
 	for (int i = 0; i < n - 1; i++) {
 		minm = i;
@@ -69,6 +90,35 @@ void sel(int a[], int n, char t) {
 		}
 		if (minm != i) {
 			swap(a[i], a[minm]);
+			count++;
+		}
+
+	}
+
+	if (t == 'y') {
+
+		for (int t = 0; t < n; t++) {
+			cout << a[t] << " ";
+		}
+	}
+	cout << "\nСравнений: " << sr << "\nПерестановок: " << count << "\n";
+}
+
+void selreversed (int a[], int n, char t) {
+
+	int sr = 0, count = 0;
+	cout << "selection method: ";
+	int maxm;
+	for (int i = 0; i < n - 1; i++) {
+		maxm = i;
+		for (int j = i + 1; j < n; j++) {
+			sr++;
+			if (a[j] > a[maxm]) {
+				maxm = j;
+			}
+		}
+		if (maxm != i) {
+			swap(a[i], a[maxm]);
 			count++;
 		}
 

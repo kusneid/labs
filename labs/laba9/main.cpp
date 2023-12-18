@@ -4,10 +4,19 @@
 ; int main() {
 	
 	system("chcp 1251 >nul");
+
+	//std::fstream file("output.txt");
 	const int max_len = 200;
-	Dictionary mas[max_len] /*={ {"dog","sobaka"},{"cat","koshka"},{"ball","shar"} }*/;
+	//Dictionary mas[max_len];
+	Dictionary* mas = new Dictionary[max_len];
+	/*if (!file.is_open()) {
+		std::cout << "File error!!\n";
+		return 0;
+	}*/
 	int cur_len = 0;
-	//Fill("output.txt", mas, cur_len);
+	Fill(mas, cur_len);
+
+	
 	while (true)
 	{
 		switch (Menu())

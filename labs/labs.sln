@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "laba3", "laba3\laba3.vcxproj", "{94C67E53-8CBC-426D-8577-97E5647170D4}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "laba8", "laba8\laba8.vcxproj", "{EACF7C4D-C4CE-4301-96FC-89D8D9452B7F}"
@@ -35,6 +37,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Элементы решен
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "hw", "hw\hw.vcxproj", "{08B8D75E-5C6A-4A8F-882B-CB12ACAF15C2}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Project1", "Project1\Project1.vcxproj", "{FB4B47E7-230B-45CA-84C9-2EBA020C79C4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -118,6 +122,14 @@ Global
 		{08B8D75E-5C6A-4A8F-882B-CB12ACAF15C2}.Release|Win32.ActiveCfg = Release|Win32
 		{08B8D75E-5C6A-4A8F-882B-CB12ACAF15C2}.Release|Win32.Build.0 = Release|Win32
 		{08B8D75E-5C6A-4A8F-882B-CB12ACAF15C2}.Release|x64.ActiveCfg = Release|Win32
+		{FB4B47E7-230B-45CA-84C9-2EBA020C79C4}.Debug|Win32.ActiveCfg = Debug|Win32
+		{FB4B47E7-230B-45CA-84C9-2EBA020C79C4}.Debug|Win32.Build.0 = Debug|Win32
+		{FB4B47E7-230B-45CA-84C9-2EBA020C79C4}.Debug|x64.ActiveCfg = Debug|x64
+		{FB4B47E7-230B-45CA-84C9-2EBA020C79C4}.Debug|x64.Build.0 = Debug|x64
+		{FB4B47E7-230B-45CA-84C9-2EBA020C79C4}.Release|Win32.ActiveCfg = Release|Win32
+		{FB4B47E7-230B-45CA-84C9-2EBA020C79C4}.Release|Win32.Build.0 = Release|Win32
+		{FB4B47E7-230B-45CA-84C9-2EBA020C79C4}.Release|x64.ActiveCfg = Release|x64
+		{FB4B47E7-230B-45CA-84C9-2EBA020C79C4}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
