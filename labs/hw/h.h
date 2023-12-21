@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <conio.h>
+#include <cstring>
 
 void Fill(char* mas, int& i);
 char* LastWord(int i, char* mas, int& len);

@@ -27,7 +27,4 @@
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="..\laba5\laba5.vcxproj" />
-  </ItemGroup>
 </Project>

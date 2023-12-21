@@ -2,9 +2,13 @@
 
 void Fill(char* mas, int& textLen) {
 	char temp;
-	do
+	while (true)
 	{
 		temp = getch();
+		if (temp == '.') {
+			break;
+
+		}
 		/*if (temp == '\b')
 		{
 			textLen--;
@@ -23,15 +27,58 @@ void Fill(char* mas, int& textLen) {
 			putch(temp);//DELETE!!!!!!!
 		}
 		else if (temp == '\b') {
+			if (textLen > 0) {
+				mas[textLen] = ' ';
+				putch('\b');
+				continue;
 
+			}
 
 		}
-		
-		
-	} while (mas[textLen - 1] != '.');
+	}
+	std::cout<<"\n";
+}	
 
-	textLen--;
-}
+
+// 	do
+// 	{
+// 		temp = getch();
+// 		// if (temp == '.') {
+// 		// 	break;
+
+// 		// }
+// 		/*if (temp == '\b')
+// 		{
+// 			textLen--;
+// 			continue;
+			
+// 		}
+// 		else
+// 		{
+			
+// 		}*/
+
+// 		if (((temp >= 'a')&&(temp<='z')) || temp == ' ')
+// 		{
+// 			mas[textLen] = temp;
+// 			textLen++;
+// 			putch(temp);//DELETE!!!!!!!
+// 		}
+// 		else if (temp == '\b') {
+// 			if (textLen > 0) {
+// 				mas[textLen] = ' ';
+// 				putch('\b');
+// 				continue;
+
+// 			}
+
+// 		}
+		
+		
+// 	} while (mas[textLen - 1] != '.');
+
+// 	//textLen--;
+// }
 
 void PrintWord(char* word, int len) {
 	for (int i = 0; i < len; i++)
@@ -42,19 +89,33 @@ void PrintWord(char* word, int len) {
 
 char* LastWord(int textLen, char* mas, int& LastWordLen) {
 	int Index_start = 0;
+	bool spacesAreSkipped = false;
+	if (mas[textLen-1]!=' ')
+	{
+		spacesAreSkipped = true;
+	}
+	
+	int Index_end =-1;
 	for (int i1 = textLen; i1 > -1; i1--) {
-		if (mas[i1] == ' ') {
+		if ((mas[i1] == ' ')&&spacesAreSkipped) {
 			Index_start = i1 + 1;
 			break;
 		}
+		if (mas[i1]!=' '|| mas[i1]!=',')
+		{
+			spacesAreSkipped = true;
+			Index_end = i1;
+		}
+
 	}
-	char* word = new char[textLen - Index_start];
+	
+	char* word = new char[Index_end - Index_start];
 	//std::cout << i - Index_start;
-	for (int i1 = Index_start; i1 <= textLen; i1++)
+	for (int i1 = Index_start; i1 <= Index_end; i1++)
 	{
 		word[i1 - Index_start] = mas[i1];
 	}
-	LastWordLen = textLen - Index_start;
+	LastWordLen = Index_end - Index_start;
 	return word;
 }
 
