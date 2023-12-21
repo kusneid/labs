@@ -8,22 +8,22 @@ int main() {
 	char* mas = new char[2000];
 
 	//char temp; 
-	int i = 0;
+	int textLen = 0;
 
-	fill(mas, i);
+	Fill(mas, textLen);
 	
-	for (int y = 0; y < i; y++) {
+	for (int y = 0; y < textLen; y++) {
 		std::cout << mas[y] << "";
 	}
 	std::cout << "\n";//should be deleted
+	std::cout << textLen;
 
-
-	int len;
-	char* word = LastWord(i, mas,len);
+	int LastWordLen;
+	char* word = LastWord(textLen, mas, LastWordLen);
 	std::cout << "\nlast word:";
-	PrintWord(word, len);
+	PrintWord(word, LastWordLen);
 	std::cout << "\nproga:\n";
-	Print(word, len, mas, i);
+	Print(word, LastWordLen, mas, textLen);
 
 
 	

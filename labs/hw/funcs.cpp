@@ -1,18 +1,36 @@
 #include "h.h"
 
-void fill(char* mas, int& i) {
+void Fill(char* mas, int& textLen) {
 	char temp;
-
 	do
 	{
-
 		temp = getch();
-		mas[i] = temp;
-		i++;
+		/*if (temp == '\b')
+		{
+			textLen--;
+			continue;
+			
+		}
+		else
+		{
+			
+		}*/
 
-	} while (mas[i - 1] != '.');
+		if (((temp >= 'a')&&(temp<='z')) || temp == ' ')
+		{
+			mas[textLen] = temp;
+			textLen++;
+			putch(temp);//DELETE!!!!!!!
+		}
+		else if (temp == '\b') {
 
-	i--;
+
+		}
+		
+		
+	} while (mas[textLen - 1] != '.');
+
+	textLen--;
 }
 
 void PrintWord(char* word, int len) {
@@ -22,21 +40,21 @@ void PrintWord(char* word, int len) {
 	}
 }
 
-char* LastWord(int i, char* mas, int& len) {
+char* LastWord(int textLen, char* mas, int& LastWordLen) {
 	int Index_start = 0;
-	for (int i1 = i; i1 > -1; i1--) {
+	for (int i1 = textLen; i1 > -1; i1--) {
 		if (mas[i1] == ' ') {
 			Index_start = i1 + 1;
 			break;
 		}
 	}
-	char* word = new char[i - Index_start];
+	char* word = new char[textLen - Index_start];
 	//std::cout << i - Index_start;
-	for (int i1 = Index_start; i1 <= i; i1++)
+	for (int i1 = Index_start; i1 <= textLen; i1++)
 	{
 		word[i1 - Index_start] = mas[i1];
 	}
-	len = i - Index_start;
+	LastWordLen = textLen - Index_start;
 	return word;
 }
 
