@@ -7,7 +7,7 @@ int main() {
 	system("chcp 1251>nul");
 	char* mas = new char[2000]; 
 	int textLen = 0;
-
+	//std::cout << Compare("ghy", "ghh",3,3);
 	Fill(mas, textLen);
 	
 	for (int y = 0; y < textLen; y++) {
@@ -16,20 +16,13 @@ int main() {
 	std::cout << "\n";
 	std::cout << textLen;//should be deleted
 
-	int LastWordLen;
-	char* word = LastWord(textLen, mas, LastWordLen);
+	int lastWordLen;
+	char* word = LastWord(textLen, mas, lastWordLen);
 	std::cout << "\nlast word:";
-	PrintWord(word, LastWordLen);
-	std::cout << LastWordLen;
+	PrintWord(word, lastWordLen);
+	//std::cout << LastWordLen;
 	std::cout << "\nproga:\n";
-	Print(word, LastWordLen, mas, textLen);
+	Print(word, lastWordLen, mas, textLen);
 
-
-	
-
-	
-	
-	
-	
 	return 0;
 }
