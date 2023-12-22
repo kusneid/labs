@@ -12,7 +12,7 @@ int main()
 	InputMatrix(matrix, matrixValue);
 	// PrintMatrix(matrix, matrixValue);
 
-	if (Determinant(matrix, matrixValue) == 0.0)
+	if (Determinant(matrix, matrixValue,0) == 0.0)
 	{
 		std::cout << "\nMatrix can't be inverted!!\n";
 		return 666;

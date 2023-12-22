@@ -48,7 +48,7 @@ void InputMatrix(double **matrix, int matrixValue)
 	{
 		for (int col = 0; col < matrixValue; col++)
 		{
-			std::cout << "\n row:" << row << " col:" << col << " Number:";
+			std::cout << "\n row:" << row+1 << " col:" << col+1 << " Number:";
 			std::cin >> matrix[row][col];
 			std::cout << "\n";
 		}
@@ -66,8 +66,9 @@ void InputMatrix(double *matrix, int matrixValue)
 	}
 }
 
-double Determinant(double **matrix, int currentMatrixValue)
+double Determinant(double **matrix, int currentMatrixValue,int curCol)
 {
+
 	if (currentMatrixValue == 1)
 	{
 		return matrix[0][0];
@@ -82,9 +83,14 @@ double Determinant(double **matrix, int currentMatrixValue)
 		matrixNext[row] = new double[currentMatrixValue - 1];
 	}
 
-	for (int row = 0; row < currentMatrixValue - 1; row++)
+	for (int row = 1; row < currentMatrixValue; row++)
 	{
-		for (int col = 0; col < currentMatrixValue - 1; col++)
+		for (int col = 0; col < curCol; col++)
+		{
+			matrixNext[row][col] = matrix[row + 1][col + 1];
+			
+		}
+		for (int col = curCol+1;col<currentMatrixValue-1;col++)
 		{
 			matrixNext[row][col] = matrix[row + 1][col + 1];
 		}
@@ -92,7 +98,7 @@ double Determinant(double **matrix, int currentMatrixValue)
 
 	for (int col = 0; col < currentMatrixValue - 1; col++)
 	{
-		Determinan += koef * matrix[0][col] * Determinant(matrixNext, currentMatrixValue - 1);
+		Determinan += koef * matrix[0][col] * Determinant(matrixNext, currentMatrixValue - 1,col);
 		koef *= -1;
 	}
 
