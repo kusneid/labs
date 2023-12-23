@@ -57,7 +57,7 @@ void InputMatrix(double **matrix, int matrixValue)
 
 void InputMatrix(double *matrix, int matrixValue)
 {
-	std::cout << "\nfill matrix to multiply with\n";
+	std::cout << "\nFill matrix to multiply with\n";
 	for (int row = 0; row < matrixValue; row++)
 	{
 		std::cout << row + 1 << "row:";
@@ -66,49 +66,39 @@ void InputMatrix(double *matrix, int matrixValue)
 	}
 }
 
-double Determinant(double **matrix, int currentMatrixValue,int curCol)
-{
-
-	if (currentMatrixValue == 1)
-	{
+double Determinant(double** matrix, int matrixValue) {
+	if (matrixValue == 1) {
 		return matrix[0][0];
 	}
 
-	double Determinan = 0;
-	short int koef = 1;
-
-	double **matrixNext = new double *[currentMatrixValue - 1];
-	for (int row = 0; row < currentMatrixValue - 1; row++)
-	{
-		matrixNext[row] = new double[currentMatrixValue - 1];
+	if (matrixValue == 2) {
+		return matrix[0][0] * matrix[1][1] - matrix[0][1] * matrix[1][0];
 	}
 
-	for (int row = 1; row < currentMatrixValue; row++)
-	{
-		for (int col = 0; col < curCol; col++)
-		{
-			matrixNext[row][col] = matrix[row + 1][col + 1];
-			
+	double determinantVal = 0.0;
+	for (int col = 0; col < matrixValue; ++col) {
+		double** matrixNext = new double* [matrixValue - 1];
+		for (int row = 0; row < matrixValue - 1; ++row) {
+			matrixNext[row] = new double[matrixValue - 1];
 		}
-		for (int col = curCol+1;col<currentMatrixValue-1;col++)
-		{
-			matrixNext[row][col] = matrix[row + 1][col + 1];
+
+		for (int row = 1; row < matrixValue; ++row) {
+			int col = 0;
+			for (int k = 0; k < matrixValue; ++k) {
+				if (k != col) {
+					matrixNext[row - 1][col] = matrix[row][k];
+					++col;
+				}
+			}
 		}
-	}
+		determinantVal += matrix[0][col] * Determinant(matrixNext, matrixValue - 1) * ((col % 2 == 0) ? 1 : -1);
 
-	for (int col = 0; col < currentMatrixValue - 1; col++)
-	{
-		Determinan += koef * matrix[0][col] * Determinant(matrixNext, currentMatrixValue - 1,col);
-		koef *= -1;
+		for (int row = 0; row < matrixValue - 1; ++row) {
+			delete[] matrixNext[row];
+		}
+		delete[] matrixNext;
 	}
-
-	for (int row = 0; row < currentMatrixValue - 1; row++)
-	{
-		delete[] matrixNext[row];
-	}
-	delete[] matrixNext;
-
-	return Determinan;
+	return determinantVal;
 }
 
 void MinusRows(double **matrix, int matrixValue, int row, int column, double koef)

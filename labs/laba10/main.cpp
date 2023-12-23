@@ -4,24 +4,24 @@ int main()
 {
 	system("chcp 1251");
 	int matrixValue;
-	std::cout << "enter matrix size:";
+	std::cout << "Enter Matrix size:";
 	std::cin >> matrixValue;
 	double **matrix = new double *[matrixValue];
 
 	FillMatrix(matrix, matrixValue);
 	InputMatrix(matrix, matrixValue);
-	// PrintMatrix(matrix, matrixValue);
 
-	if (Determinant(matrix, matrixValue,0) == 0.0)
+	if (Determinant(matrix, matrixValue) == 0.0)
 	{
 		std::cout << "\nMatrix can't be inverted!!\n";
-		return 666;
+		return -1;
 	}
-	std::cout << "\nmain:\n";
+
+	std::cout << "\nInverted:\n";
 	MatrixInvert(matrix, matrixValue);
 	PrintMatrix(matrix, matrixValue);
 
-	std::cout << "\nmultiplier part:";
+	std::cout << "\nMultiply with 1-column matrix:";
 	double *multMatrix = new double[matrixValue];
 	double *Answer = new double[matrixValue];
 	InputMatrix(multMatrix, matrixValue);

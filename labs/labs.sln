@@ -33,7 +33,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Элементы решен
 		doclab\lab08.doc = doclab\lab08.doc
 		doclab\lab09.doc = doclab\lab09.doc
 		doclab\lab10.doc = doclab\lab10.doc
-		temp.txt = temp.txt
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "hw", "hw\hw.vcxproj", "{08B8D75E-5C6A-4A8F-882B-CB12ACAF15C2}"
