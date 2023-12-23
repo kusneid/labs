@@ -6,6 +6,7 @@ void Fill(char* mas, int& textLen) {
 	{
 		temp = getch();
 		if (temp == '.') {
+			putch('.');
 			break;
 
 		}
@@ -43,7 +44,9 @@ void Fill(char* mas, int& textLen) {
 	{
 		textLen--;
 	}
-	std::cout<<"\n";
+	mas[textLen]='\0';
+
+	//std::cout<<"\n";
 }	
 
 
@@ -150,8 +153,8 @@ bool Compare(char* word, char* word_temp, int lastWordLen,int wordCurrentLen) {
 	{
 		return false;
 	}
-	//int maxLen = std::max(lastWordLen, wordCurrentLen);
-	for (int i = 0; i <= lastWordLen; i++)
+	int maxLen = std::min(lastWordLen, wordCurrentLen);
+	for (int i = 0; i < maxLen; i++)
 	{
 		if (word[i] != word_temp[i]) {
 			return false;
@@ -160,10 +163,19 @@ bool Compare(char* word, char* word_temp, int lastWordLen,int wordCurrentLen) {
 	return true;
 
 }
-
+bool CheckForSpaces(char* wordCurrent,int wordCurrentLen){
+	for (int i = 0; i < wordCurrentLen; i++)
+	{
+		if (wordCurrent[i]==' '){
+			return false;
+		}
+		
+	}
+	return true;
+}
 
 void Print(char* word, int lastWordLen, char* mas,int textLen) {
-	char* wordCurrent=new char[50];
+	char* wordCurrent=new char[500];
 	int wordCurrentLen = 0;
 	/*int a = ;*/
 	for (int i = 0; i < textLen; i++)
@@ -176,18 +188,30 @@ void Print(char* word, int lastWordLen, char* mas,int textLen) {
 		}
 		else
 		{
+			// std::cout<<"\nhere:\n";
+			// for (size_t i = 0; i < wordCurrentLen; i++)
+			// {
+			// 	std::cout<<wordCurrent[i];
+			// }
+			// std::cout<<":\n";
+
+			
 			//Compare(word, wordCurrent, std::max(lastWordLen, wordCurrentLen)
 			if (Compare(word,wordCurrent,lastWordLen,wordCurrentLen) == false)
 			{
 				PrintWord(wordCurrent, wordCurrentLen-1);
+				
+				
 				putch(' ');
+				
 				
 			}
 			else {
 				
 			}
 			wordCurrentLen = 0;
-			//delete[] wordCurrent;
+			// delete[] wordCurrent;
+			// char* wordCurrent=new char[500];
 			
 		}
 
