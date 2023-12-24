@@ -4,7 +4,7 @@ using namespace std;
 
 int *KeyFill(int &KeyLen)
 {
-	char s[300];
+	char s[60];
 	char ch;
 	int i = 0;
 	ifstream key("key.txt");
@@ -66,12 +66,12 @@ void Encoding(char *Exceptions, int *ExceptionsIndex, int stat[256][256], int Ke
 			ExceptionsIndex[y] = i;
 			y++;
 			encoded << ch;
-			stat[(256 + x) % 256][x] = x;
+			stat[(256 + x) % 256][x]++;
 		}
 		else
 		{
 			encoded << static_cast<char>((x + ke[i % KeyLen]) % 256);
-			stat[(256 + x) % 256][(x + ke[i % KeyLen]) % 256] = (x + ke[i % KeyLen]) % 256;
+			stat[(256 + x) % 256][(x + ke[i % KeyLen]) % 256]++;
 		}
 	}
 	source.close();

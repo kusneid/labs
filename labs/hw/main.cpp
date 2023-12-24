@@ -2,7 +2,7 @@
 
 
 
-bool CheckForSpaces(char* wordCurrent,int wordCurrentLen);
+//bool CheckForSpaces(char* wordCurrent,int wordCurrentLen);
 int main() {
 	system("chcp 1251>nul");
 	char* mas = new char[2000]; 
