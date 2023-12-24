@@ -11,11 +11,30 @@ int Menu()
 	return n;
 }
 
-int SearchIndex(Dictionary mas[], char *word, int cur_len)
+void Filter(Dictionary* mas, int cur_len) {
+	bool isSorted;
+	for (int i = 0; i < cur_len - 1; i++)
+	{
+		isSorted = true;
+		for (int j = 0; j < cur_len - i - 1; j++)
+		{
+			if (std::strcmp(mas[j].eng, mas[j + 1].eng) > 0)
+			{
+				std::swap(mas[j], mas[j + 1]);
+				isSorted = false;
+			}
+		}
+		if (isSorted == true) {
+			break;
+		}
+	}
+}
+
+int SearchIndex(Dictionary* mas, char* word, int cur_len)
 {
 	int i = 0;
 
-	while ((mas[i].eng != word) || (mas[i].rus != word) && (i < cur_len - 1))
+	while ((std::strcmp(mas[i].rus,word)!=0) && (std::strcmp(mas[i].eng, word) != 0) && (i < cur_len - 1))
 	{
 		i++;
 	}
@@ -29,7 +48,7 @@ int SearchIndex(Dictionary mas[], char *word, int cur_len)
 	return i;
 }
 
-int SearchIndex(Dictionary mas[], char word[31], int cur_len, char *lang)
+int SearchIndex(Dictionary mas[], char* word, int cur_len, char *lang)
 {
 	int i = 0;
 
@@ -76,45 +95,54 @@ void AddWords(Dictionary mas[], int &cur_len, const int max_len)
 		std::cout << "\nDo you want to continue? (y/n)";
 		std::cin >> state;
 	}
-
+	Filter(mas, cur_len);
 	if (cur_len == max_len)
 	{
 		std::cout << "Dictionary is full!!\n\n";
 	}
+
 	return;
 }
 
-void DeleteWord(Dictionary mas[], int &cur_len)
+
+void DeleteWord(Dictionary* mas, int& cur_len)
 {
-	char *word = new char[31];
-	std::cout << "\nWhich word do you want to delete?:";
+	
+	bool flag = false;
+	char* word = new char[31];
+	std::cout << "Which word do you want to delete?: ";
 	std::cin >> word;
-
-	for (int i = SearchIndex(mas, word, cur_len); i < cur_len - 1; i++)
+	int i;
+	for (i = 0; i < cur_len; i++)
 	{
-		std::cout << "hfefe";
-		if (i == -1)
+		if (std::strcmp(mas[i].eng, word) == 0)
 		{
-			std::cout << "cant find";
-			return;
+			flag = true;
+			break;
 		}
-
-		delete[] mas[i].rus;
+	}
+	if (flag)
+	{
 		delete[] mas[i].eng;
-		// cur_len--;
-		for (int i = 0; i < cur_len - 1; i++)
+		delete[] mas[i].rus;
+		for (i; i < cur_len - 1; i++)
 		{
 			mas[i].eng = mas[i + 1].eng;
 			mas[i].rus = mas[i + 1].rus;
 		}
+		cur_len--;
 	}
+	else{
+		std::cout << "\nCan't find the word\n\n";
+	}
+		
 
-	cur_len--;
-	return;
 }
+
 
 void PrintDictionary(Dictionary mas[], int cur_len)
 {
+	
 	std::cout << "\nDictionary:\n";
 
 	for (int i = 0; i < cur_len; i++)
@@ -131,7 +159,7 @@ void Translate(Dictionary mas[], int cur_len, const int type)
 {
 
 	char word[31];
-	int i = 0;
+	int i;
 	std::cout << "\nEnter the word you want to translate:";
 	std::cin >> word;
 	if (type == 0)

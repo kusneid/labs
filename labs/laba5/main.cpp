@@ -6,31 +6,32 @@ int main()
 	const int n = 5;
 	int a[n], se[n], i;
 
-	cout << "пїЅпїЅпїЅпїЅпїЅпїЅ: ";
+	cout << "массив: ";
 	ran(a, n, 'y');
 	for (i = 0; i < n; i++)
 	{
 		se[i] = a[i];
 	}
 
-	cout << "\n";
+	cout << "\n\n";
 	bub(se, n, 'y');
 	sel(a, n, 'y');
 
-	cout << "\nпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ: \n";
+	cout << "\nпрямой порядок: \n";
 	sel(a, n, 'y');
 	bub(se, n, 'y');
 
-	cout << "\nпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ: \n";
+	cout << "\nобратный: \n";
 
 	selreversed(a, n, 'y');
 	bubreversed(se, n, 'y');
 
-	cout << "\n2 пїЅпїЅпїЅпїЅпїЅпїЅ:\n";
+	cout << "\n2 задача:\n";
+	int* p;
 	for (int r = 1; r <= 1000; r = r * 10)
 	{
-		cout << "\nпїЅпїЅпїЅ-пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ: " << 5 * r << "\n";
-		int *p = new int[5 * r];
+		cout << "\nкол-во элементов: " << 5 * r << "\n";
+		p = new int[5 * r];
 		ran(p, 5 * r, 'l');
 		int *u = new int[5 * r];
 		for (i = 0; i < 5 * r; i++)

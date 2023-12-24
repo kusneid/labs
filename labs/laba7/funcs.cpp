@@ -114,10 +114,10 @@ void Stats(int stat[256][256])
 	{
 		return;
 	}
-	st << setw(2) << 0 << setw(4);
+	st << setw(2) << 0 << setw(6);
 	for (int n = 0; n < 256; n++)
 	{
-		st << n << ' ';
+		st << n << setw(6);
 	}
 	st << "\n";
 	for (int v = 0; v < 256; v++)
@@ -137,10 +137,10 @@ void Stats(int stat[256][256])
 		}
 		if (exis == true)
 		{
-			st << v << ' ';
+			st <<setw(2)<< v << setw(6);
 			for (int bg = 0; bg < 256; bg++)
 			{
-				st << stat[v][bg] << ' ';
+				st << stat[v][bg] << setw(6);
 			}
 			st << "\n";
 		}

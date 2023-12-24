@@ -101,16 +101,6 @@ double Determinant(double** matrix, int matrixValue) {
 	return determinantVal;
 }
 
-void MinusRows(double **matrix, int matrixValue, int row, int column, double koef)
-{
-	koef = matrix[row][column];
-	for (int col1 = 0; col1 < matrixValue * 2; col1++)
-	{
-		// std::cout << "\ntututu\n";
-		matrix[row][col1] -= (matrix[0][col1] * koef);
-	}
-}
-
 void ZeroColumn(double **matrix, int matrixValue, int column)
 {
 	int temp = 1;
@@ -118,7 +108,6 @@ void ZeroColumn(double **matrix, int matrixValue, int column)
 	std::swap(matrix[column], matrix[0]);
 	while (matrix[0][column] == 0)
 	{
-		// std::cout << "\nlol\n";
 		std::swap(matrix[0], matrix[temp]);
 		temp++;
 	}
@@ -127,10 +116,8 @@ void ZeroColumn(double **matrix, int matrixValue, int column)
 
 	for (int row = 0; row < matrixValue; row++)
 	{
-		// std::cout << "\nlol1\n";
 		for (int col = 0; col < matrixValue * 2; col++)
 		{
-			// std::cout << "\nlol\n";
 			if (row == 0)
 			{
 
@@ -138,16 +125,12 @@ void ZeroColumn(double **matrix, int matrixValue, int column)
 			}
 			else if (column != matrixValue)
 			{
-				// std::cout << "\ntut\n";
 				while (matrix[row][column] != 0)
 				{
-					// std::cout << "\ntut\n";
-
-					// MinusRows(matrix, matrixValue, row, column, koef);
 					koef = matrix[row][column];
 					for (int col1 = 0; col1 < matrixValue * 2; col1++)
 					{
-						// std::cout << "\ntututu\n";
+					
 						matrix[row][col1] -= matrix[0][col1] * koef;
 					}
 				}
@@ -161,7 +144,7 @@ void MatrixInvert(double **matrix, int matrixValue)
 	for (int col = 0; col < matrixValue; col++)
 	{
 		ZeroColumn(matrix, matrixValue, col);
-		// std::cout << "\nlol\n";
+		
 	}
 	std::swap(matrix[0], matrix[matrixValue]);
 	for (int row = 1; row < matrixValue; row++)

@@ -8,7 +8,7 @@ int main()
 	Dictionary *mas = new Dictionary[max_len];
 	int cur_len = 0;
 	Fill(mas, cur_len);
-
+	Filter(mas, cur_len);
 	while (true)
 	{
 		switch (Menu())

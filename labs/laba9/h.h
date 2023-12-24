@@ -16,3 +16,4 @@ void DeleteWord(Dictionary mas[], int &cur_len);
 void PrintDictionary(Dictionary mas[], int cur_len);
 void DictionaryToFile(Dictionary mas[], int cur_len);
 void Fill(Dictionary *mas, int &cur_len);
+void Filter(Dictionary* mas, int cur_len);
