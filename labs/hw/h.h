@@ -1,5 +1,4 @@
 #pragma once
-#include <iostream>
 #include <conio.h>
 #include <cstring>
 bool Compare(char* word, char* word_temp, int lastWordLen, int wordCurrentLen);
