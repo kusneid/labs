@@ -10,7 +10,6 @@ int main()
 
 	FillMatrix(matrix, matrixValue);
 	InputMatrix(matrix, matrixValue);
-
 	if (Determinant(matrix, matrixValue) == 0.0)
 	{
 		std::cout << "\nMatrix can't be inverted!!\n";
@@ -28,6 +27,16 @@ int main()
 	Multiply(matrix, matrixValue, multMatrix, Answer);
 
 	PrintMatrix(Answer, matrixValue);
+	
+	for (int i = 0; i < matrixValue; i++)
+	{
+		delete[] matrix[i];
+	}
+	delete[] matrix;
+
+	delete[] Answer;
+
+	delete[] multMatrix;
 
 	return 0;
 }

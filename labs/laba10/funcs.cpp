@@ -83,11 +83,11 @@ double Determinant(double** matrix, int matrixValue) {
 		}
 
 		for (int row = 1; row < matrixValue; ++row) {
-			int col = 0;
+			int colIndex = 0;
 			for (int k = 0; k < matrixValue; ++k) {
 				if (k != col) {
-					matrixNext[row - 1][col] = matrix[row][k];
-					++col;
+					matrixNext[row - 1][colIndex] = matrix[row][k];
+					++colIndex;
 				}
 			}
 		}
