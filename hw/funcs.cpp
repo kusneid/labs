@@ -7,7 +7,7 @@ void Fill(char *mas, int &textLen)
 	{
 		temp = getch();
 
-		if (((temp >= 'a') && (temp <= 'z')) || temp == ' ' || temp == ',')
+		if (((temp >= 'a') && (temp <= 'z')) || temp == ' ')
 		{
 			mas[textLen] = temp;
 			textLen++;
@@ -47,7 +47,7 @@ char *LastWord(int textLen, char *mas, int &lastWordLen)
 	int Index_start = 0;
 	for (int i1 = textLen; i1 > -1; i1--)
 	{
-		if (mas[i1] == ' ' || mas[i1] == ',')
+		if (mas[i1] == ' ')
 		{
 			Index_start = i1 + 1;
 			break;
@@ -62,38 +62,17 @@ char *LastWord(int textLen, char *mas, int &lastWordLen)
 	return word;
 }
 
-int minm(int lastWordLen, int wordCurrentLen)
-{
-	if (lastWordLen < wordCurrentLen)
-	{
-		return lastWordLen;
-	}
-	else
-	{
-		return wordCurrentLen;
-	}
-}
-bool Compare(char *word, char *word_temp, int lastWordLen, int wordCurrentLen)
+
+bool Compare(char *lastWord, char *word_temp, int lastWordLen, int wordCurrentLen)
 {
 	if (lastWordLen != wordCurrentLen)
 	{
 		return false;
 	}
-	int maxLen = minm(lastWordLen, wordCurrentLen);
-	for (int i = 0; i < maxLen; i++)
+
+	for (int i = 0; i < lastWordLen; i++)
 	{
-		if (word[i] != word_temp[i])
-		{
-			return false;
-		}
-	}
-	return true;
-}
-bool CheckForSpaces(char *wordCurrent, int wordCurrentLen)
-{
-	for (int i = 0; i < wordCurrentLen; i++)
-	{
-		if (wordCurrent[i] == ' ')
+		if (lastWord[i] != word_temp[i])
 		{
 			return false;
 		}
@@ -101,27 +80,26 @@ bool CheckForSpaces(char *wordCurrent, int wordCurrentLen)
 	return true;
 }
 
-void Print(char *word, int lastWordLen, char *mas, int textLen)
+
+void Print(char *lastWord, int lastWordLen, char *mas, int textLen)
 {
 	char *wordCurrent = new char[500];
 	int wordCurrentLen = 0;
 	for (int i = 0; i < textLen; i++)
 	{
-		if ((mas[i] != ' ') && (mas[i] != ','))
+		if (mas[i] != ' ')
 		{
 			wordCurrent[wordCurrentLen] = mas[i];
 			wordCurrentLen++;
 		}
 		else
 		{
-			if (Compare(word, wordCurrent, lastWordLen, wordCurrentLen) == false)
+			if (Compare(lastWord, wordCurrent, lastWordLen, wordCurrentLen) == false)
 			{
 				PrintWord(wordCurrent, wordCurrentLen - 1);
 				putch(' ');
 			}
-			else
-			{
-			}
+			
 			wordCurrentLen = 0;
 		}
 	}
